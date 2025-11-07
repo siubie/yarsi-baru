@@ -54,4 +54,16 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     {
         return true; // Add role-based restrictions here if needed
     }
+
+    //relation to contacts
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
+
+    //relation to proposals
+    public function proposals()
+    {
+        return $this->hasMany(Proposal::class);
+    }
 }
