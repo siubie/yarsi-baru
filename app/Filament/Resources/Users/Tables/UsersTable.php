@@ -13,6 +13,7 @@ use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Spatie\Permission\Models\Role;
+use STS\FilamentImpersonate\Actions\Impersonate;
 
 class UsersTable
 {
@@ -46,6 +47,8 @@ class UsersTable
                 ViewAction::make(),
                 EditAction::make(),
                 DeleteAction::make(),
+                Impersonate::make()
+                    ->redirectTo(route('filament.admin.pages.dashboard')),
                 Action::make('Set Role')
                     ->schema([
                         Select::make('role')
